@@ -16,7 +16,7 @@
                         fill="white"/>
                 </svg>
 
-                <span class="mx-2 text-2xl font-semibold text-white">Dashboard</span>
+                <span class="mx-2 text-2xl font-semibold text-white">DiaSyS</span>
             </div>
         </div>
 
@@ -31,18 +31,7 @@
                               d="M20.488 9H15V3.512A9.025 9.025 0 0120.488 9z"/>
                     </svg>
                 </template>
-                Dashboard
-            </nav-link>
-
-            <nav-link :href="route('users.index')" :active="route().current('users.index')">
-                <template #icon>
-                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"
-                         xmlns="http://www.w3.org/2000/svg">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                              d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z"></path>
-                    </svg>
-                </template>
-                Users
+                Panel General
             </nav-link>
 
             <nav-link :href="route('about')" :active="route().current('about')">
@@ -77,6 +66,17 @@
                     </ul>
                 </div>
             </transition>
+
+            <nav-link :href="route('users.index')" :active="route().current('users.index')">
+                <template #icon>
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                         xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                              d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z"></path>
+                    </svg>
+                </template>
+                Users
+            </nav-link>
         </nav>
     </div>
 
