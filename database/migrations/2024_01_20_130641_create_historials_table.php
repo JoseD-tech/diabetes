@@ -13,6 +13,10 @@ return new class extends Migration
     {
         Schema::create('historials', function (Blueprint $table) {
             $table->id();
+            $table->foreignId("paciente_id")->require()->constrained('pacientes');
+            $table->text("doctor")->require();
+            $table->text('descripcion')->require();
+            $table->text("resultado")->require();
             $table->timestamps();
         });
     }
