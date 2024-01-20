@@ -21,14 +21,6 @@ return new class extends Migration
             $table->timestamps();
         });
 
-        DB::table('estados')->insert([
-            'estado' => 'Pendiente'
-        ]);
-
-        DB::table('estados')->insert([
-            'estado' => 'Revisado'
-        ]);
-
         //Crea los Roles
         $role1 = Role::create(['name' => 'admin']);
         $role2 = Role::create(['name' => 'doctor']);
