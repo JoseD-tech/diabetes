@@ -1,210 +1,115 @@
 <template>
-    <Head title="Panel General" />
+    <Head title="Dashboard" />
 
     <AuthenticatedLayout>
         <template #header>
             Panel General
         </template>
 
-        <div class="mt-4 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
-            <div class="flex items-start rounded-xl bg-white p-4 shadow-lg">
-                <div class="flex h-12 w-12 items-center justify-center rounded-full border border-blue-100 bg-blue-50">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-blue-400" fill="none" viewBox="0 0 24 24"
-                        stroke="currentColor" stroke-width="2">
-                        <path stroke-linecap="round" stroke-linejoin="round"
-                            d="M7 8h10M7 12h4m1 8l-4-4H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-3l-4 4z" />
-                    </svg>
-                </div>
-
-                <div class="ml-4">
-                    <h2 class="font-semibold">{{ props.citas }} Citas</h2>
-                    <p class="mt-2 text-sm text-gray-500">Citas Medicas Registradas</p>
-                </div>
-            </div>
-
-            <div class="flex items-start rounded-xl bg-white p-4 shadow-lg">
-                <div class="flex h-12 w-12 items-center justify-center rounded-full border border-orange-100 bg-orange-50">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-orange-400" fill="none" viewBox="0 0 24 24"
-                        stroke="currentColor" stroke-width="2">
-                        <path stroke-linecap="round" stroke-linejoin="round"
-                            d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
-                    </svg>
-                </div>
-
-                <div class="ml-4">
-                    <h2 class="font-semibold">{{ props.pacientes }} Pacientes</h2>
-                    <p class="mt-2 text-sm text-gray-500">Pacientes Registrados</p>
-                </div>
-            </div>
-            <div class="flex items-start rounded-xl bg-white p-4 shadow-lg">
-                <div class="flex h-12 w-12 items-center justify-center rounded-full border border-red-100 bg-red-50">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-red-400" fill="none" viewBox="0 0 24 24"
-                        stroke="currentColor" stroke-width="2">
-                        <path stroke-linecap="round" stroke-linejoin="round"
-                            d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
-                    </svg>
-                </div>
-
-                <div class="ml-4">
-                    <h2 class="font-semibold">{{ props.doctores }} Doctores</h2>
-                    <p class="mt-2 text-sm text-gray-500">Doctores Inscritos</p>
-                </div>
-            </div>
-            <div class="flex items-start rounded-xl bg-white p-4 shadow-lg">
-                <div class="flex h-12 w-12 items-center justify-center rounded-full border border-indigo-100 bg-indigo-50">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-indigo-400" fill="none" viewBox="0 0 24 24"
-                        stroke="currentColor" stroke-width="2">
-                        <path stroke-linecap="round" stroke-linejoin="round"
-                            d="M7 8h10M7 12h4m1 8l-4-4H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-3l-4 4z" />
-                    </svg>
-                </div>
-
-                <div class="ml-4">
-                    <h2 class="font-semibold">{{ props.secretario }} Secretarias</h2>
-                    <p class="mt-2 text-sm text-gray-500">Secretarias Registradas</p>
-                </div>
-            </div>
-        </div>
-
-        <div class="mt-6 bg-white overflow-hidden shadow-sm sm:rounded-lg">
-            <div v-if="props.citas > 0" class="-mx-4 sm:-mx-8 px-4 sm:px-8 overflow-x-auto">
-                <div class="inline-block min-w-full shadow rounded-lg overflow-hidden">
-                    <h3 class="text-xl uppercase ml-4 py-4">Citas Atendidas</h3>
-                    <table class="min-w-full leading-normal">
-                        <thead>
-                            <tr>
-                                <th
-                                    class="px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
-                                    Nombre y Apellido
-                                </th>
-                                <th
-                                    class="px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
-                                    Doctor
-                                </th>
-                                <th
-                                    class="px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
-                                    Fecha de Atencion
-                                </th>
-                                <th
-                                    class="px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
-                                    Acciones
-                                </th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr v-for="cita in props.historial" :key="cita.id">
-                                <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
-                                    <p class="text-gray-900 whitespace-no-wrap">
-                                        {{ cita.historia_paciente.nombre }} {{ cita.historia_paciente.apellido }}
-                                    </p>
-                                </td>
-                                <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
-                                    <p class="text-gray-900 whitespace-no-wrap">{{ cita.doctor }}</p>
-                                </td>
-                                <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
-                                    <p class="text-gray-900 whitespace-no-wrap">
-                                        {{ Date(cita.fecha_cita) }}
-                                    </p>
-                                </td>
-                                <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm space-x-2">
-                                    <button @click="mostrarReporte(cita.id)"
-                                        class="bg-red-600 px-2 py-1 rounded-md text-white font-semibold tracking-wide cursor-pointer">Reporte</button>
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-            <p v-else>No Hay Citas Registradas</p>
-        </div>
-
-
-        <Modal :show="verReporte">
-            <div role="alert">
-                <div class="relative py-8 px-5 md:px-10 bg-white shadow-md rounded border border-gray-400">
-                    <h1 class="text-gray-800 font-lg font-bold tracking-normal leading-tight mb-4 text-2xl">
-                        Atencion De Cita
-                    </h1>
-                    <div>
-                        <h3 class="text-gray-800 font-bold leading-tight tracking-normal text-xl">
-                            Estado</h3>
-                        <span class="relative inline-block px-3 py-1 font-semibold text-green-900 leading-tight">
-                            <span aria-hidden class="absolute inset-0 bg-green-200 opacity-50 rounded-full"></span>
-                            <span class="relative">Atentedido</span>
-                        </span>
-                    </div>
-                    <div>
-                        <h3 class="text-gray-800 font-bold leading-tight tracking-normal text-xl mt-4">
-                            Paciente</h3>
-                        <p>Nombre y Apellido: {{ citaReporte.historia_paciente.nombre }} {{ citaReporte.historia_paciente.nombre }}</p>
-                        <p>Cedula: {{ citaReporte.historia_paciente.cedula }}</p>
-                        <p>Telefono: {{ citaReporte.historia_paciente.telefono }}</p>
-                        <p>Sintomas: {{ citaReporte.descripcion }}</p>
-                    </div>
-                    <div>
-                        <h3 class="mt-4 text-gray-800 font-bold leading-tight tracking-normal text-xl">
-                            Doctor</h3>
-                        <p>Nombre Del Doctor: {{ citaReporte.doctor }}</p>
-                    </div>
-                    <div>
-                        <h3 class="mt-4 text-gray-800 font-bold leading-tight tracking-normal text-xl">
-                            Fecha De Atencion</h3>
-                        <p>Fecha de atencion: {{ Date(citaReporte.created_at) }}</p>
-                    </div>
-
-                    <div>
-                        <h3 class="mt-4 text-gray-800 font-bold leading-tight tracking-normal text-xl">
-                            Resultado De La Cita</h3>
-                        <p>Resultado: {{ citaReporte.resultado }}</p>
-                    </div>
-
-                    <div class="mt-6 flex items-center justify-start w-full">
-
-                        <button
-                            class="focus:outline-none focus:ring-2 focus:ring-offset-2  focus:ring-gray-400 bg-gray-100 transition duration-150 text-gray-600 ease-in-out hover:border-gray-400 hover:bg-gray-300 border rounded px-8 py-2 text-sm w-full"
-                            @click="mostrarReporte">Cancel</button>
-                    </div>
-                    <button
-                        class="cursor-pointer absolute top-0 right-0 mt-4 mr-5 text-gray-400 hover:text-gray-600 transition duration-150 ease-in-out rounded focus:ring-2 focus:outline-none focus:ring-gray-600"
-                        @click="mostrarReporte" aria-label="close modal" role="button">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-x" width="20"
-                            height="20" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor" fill="none"
-                            stroke-linecap="round" stroke-linejoin="round">
-                            <path stroke="none" d="M0 0h24v24H0z" />
-                            <line x1="18" y1="6" x2="6" y2="18" />
-                            <line x1="6" y1="6" x2="18" y2="18" />
+        <div class="pt-6">
+            <div class="mb-12 grid gap-y-10 gap-x-6 md:grid-cols-2 xl:grid-cols-4">
+                <div class="relative flex flex-col bg-clip-border rounded-xl bg-white text-gray-700 shadow-md">
+                    <div
+                        class="bg-clip-border mx-4 rounded-xl overflow-hidden bg-gradient-to-tr from-blue-600 to-blue-400 text-white shadow-blue-500/40 shadow-lg absolute -mt-4 grid h-16 w-16 place-items-center">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"
+                            class="w-6 h-6 text-white">
+                            <path d="M12 7.5a2.25 2.25 0 100 4.5 2.25 2.25 0 000-4.5z"></path>
+                            <path fill-rule="evenodd"
+                                d="M1.5 4.875C1.5 3.839 2.34 3 3.375 3h17.25c1.035 0 1.875.84 1.875 1.875v9.75c0 1.036-.84 1.875-1.875 1.875H3.375A1.875 1.875 0 011.5 14.625v-9.75zM8.25 9.75a3.75 3.75 0 117.5 0 3.75 3.75 0 01-7.5 0zM18.75 9a.75.75 0 00-.75.75v.008c0 .414.336.75.75.75h.008a.75.75 0 00.75-.75V9.75a.75.75 0 00-.75-.75h-.008zM4.5 9.75A.75.75 0 015.25 9h.008a.75.75 0 01.75.75v.008a.75.75 0 01-.75.75H5.25a.75.75 0 01-.75-.75V9.75z"
+                                clip-rule="evenodd"></path>
+                            <path
+                                d="M2.25 18a.75.75 0 000 1.5c5.4 0 10.63.722 15.6 2.075 1.19.324 2.4-.558 2.4-1.82V18.75a.75.75 0 00-.75-.75H2.25z">
+                            </path>
                         </svg>
-                    </button>
-
+                    </div>
+                    <div class="p-4 text-right">
+                        <p class="block antialiased font-sans text-sm leading-normal font-normal text-blue-gray-600">Today's
+                            Money</p>
+                        <h4
+                            class="block antialiased tracking-normal font-sans text-2xl font-semibold leading-snug text-blue-gray-900">
+                            $53k</h4>
+                    </div>
+                    <div class="border-t border-blue-gray-50 p-4">
+                        <p class="block antialiased font-sans text-base leading-relaxed font-normal text-blue-gray-600">
+                            <strong class="text-green-500">+55%</strong>&nbsp;than last week
+                        </p>
+                    </div>
+                </div>
+                <div class="relative flex flex-col bg-clip-border rounded-xl bg-white text-gray-700 shadow-md">
+                    <div
+                        class="bg-clip-border mx-4 rounded-xl overflow-hidden bg-gradient-to-tr from-pink-600 to-pink-400 text-white shadow-pink-500/40 shadow-lg absolute -mt-4 grid h-16 w-16 place-items-center">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"
+                            class="w-6 h-6 text-white">
+                            <path fill-rule="evenodd"
+                                d="M7.5 6a4.5 4.5 0 119 0 4.5 4.5 0 01-9 0zM3.751 20.105a8.25 8.25 0 0116.498 0 .75.75 0 01-.437.695A18.683 18.683 0 0112 22.5c-2.786 0-5.433-.608-7.812-1.7a.75.75 0 01-.437-.695z"
+                                clip-rule="evenodd"></path>
+                        </svg>
+                    </div>
+                    <div class="p-4 text-right">
+                        <p class="block antialiased font-sans text-sm leading-normal font-normal text-blue-gray-600">Today's
+                            Users</p>
+                        <h4
+                            class="block antialiased tracking-normal font-sans text-2xl font-semibold leading-snug text-blue-gray-900">
+                            2,300</h4>
+                    </div>
+                    <div class="border-t border-blue-gray-50 p-4">
+                        <p class="block antialiased font-sans text-base leading-relaxed font-normal text-blue-gray-600">
+                            <strong class="text-green-500">+3%</strong>&nbsp;than last month
+                        </p>
+                    </div>
+                </div>
+                <div class="relative flex flex-col bg-clip-border rounded-xl bg-white text-gray-700 shadow-md">
+                    <div
+                        class="bg-clip-border mx-4 rounded-xl overflow-hidden bg-gradient-to-tr from-green-600 to-green-400 text-white shadow-green-500/40 shadow-lg absolute -mt-4 grid h-16 w-16 place-items-center">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"
+                            class="w-6 h-6 text-white">
+                            <path
+                                d="M6.25 6.375a4.125 4.125 0 118.25 0 4.125 4.125 0 01-8.25 0zM3.25 19.125a7.125 7.125 0 0114.25 0v.003l-.001.119a.75.75 0 01-.363.63 13.067 13.067 0 01-6.761 1.873c-2.472 0-4.786-.684-6.76-1.873a.75.75 0 01-.364-.63l-.001-.122zM19.75 7.5a.75.75 0 00-1.5 0v2.25H16a.75.75 0 000 1.5h2.25v2.25a.75.75 0 001.5 0v-2.25H22a.75.75 0 000-1.5h-2.25V7.5z">
+                            </path>
+                        </svg>
+                    </div>
+                    <div class="p-4 text-right">
+                        <p class="block antialiased font-sans text-sm leading-normal font-normal text-blue-gray-600">New
+                            Clients</p>
+                        <h4
+                            class="block antialiased tracking-normal font-sans text-2xl font-semibold leading-snug text-blue-gray-900">
+                            3,462</h4>
+                    </div>
+                    <div class="border-t border-blue-gray-50 p-4">
+                        <p class="block antialiased font-sans text-base leading-relaxed font-normal text-blue-gray-600">
+                            <strong class="text-red-500">-2%</strong>&nbsp;than yesterday
+                        </p>
+                    </div>
+                </div>
+                <div class="relative flex flex-col bg-clip-border rounded-xl bg-white text-gray-700 shadow-md">
+                    <div
+                        class="bg-clip-border mx-4 rounded-xl overflow-hidden bg-gradient-to-tr from-orange-600 to-orange-400 text-white shadow-orange-500/40 shadow-lg absolute -mt-4 grid h-16 w-16 place-items-center">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"
+                            class="w-6 h-6 text-white">
+                            <path
+                                d="M18.375 2.25c-1.035 0-1.875.84-1.875 1.875v15.75c0 1.035.84 1.875 1.875 1.875h.75c1.035 0 1.875-.84 1.875-1.875V4.125c0-1.036-.84-1.875-1.875-1.875h-.75zM9.75 8.625c0-1.036.84-1.875 1.875-1.875h.75c1.036 0 1.875.84 1.875 1.875v11.25c0 1.035-.84 1.875-1.875 1.875h-.75a1.875 1.875 0 01-1.875-1.875V8.625zM3 13.125c0-1.036.84-1.875 1.875-1.875h.75c1.036 0 1.875.84 1.875 1.875v6.75c0 1.035-.84 1.875-1.875 1.875h-.75A1.875 1.875 0 013 19.875v-6.75z">
+                            </path>
+                        </svg>
+                    </div>
+                    <div class="p-4 text-right">
+                        <p class="block antialiased font-sans text-sm leading-normal font-normal text-blue-gray-600">Sales
+                        </p>
+                        <h4
+                            class="block antialiased tracking-normal font-sans text-2xl font-semibold leading-snug text-blue-gray-900">
+                            $103,430</h4>
+                    </div>
+                    <div class="border-t border-blue-gray-50 p-4">
+                        <p class="block antialiased font-sans text-base leading-relaxed font-normal text-blue-gray-600">
+                            <strong class="text-green-500">+5%</strong>&nbsp;than yesterday
+                        </p>
+                    </div>
                 </div>
             </div>
-
-        </Modal>
-
+        </div>
     </AuthenticatedLayout>
 </template>
 
 <script setup>
 import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout.vue'
-import Modal from '@/Components/Modal.vue';
 import { Head } from '@inertiajs/vue3';
-import { ref } from 'vue';
-
-const props = defineProps({
-    citas: Number,
-    pacientes: Number,
-    doctores: Number,
-    secretario: Number,
-    historial: Object
-})
-
-let verReporte = ref(false)
-let citaReporte = ref(null)
-
-const mostrarReporte = (id) => {
-    citaReporte.value = props.historial.find((historial) => historial.id === id);
-    console.log(citaReporte.value);
-    verReporte.value = !verReporte.value
-}
-
 </script>
