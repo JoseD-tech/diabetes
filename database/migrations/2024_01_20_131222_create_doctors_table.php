@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
+use Illuminate\Support\Facades\DB;
 
 return new class extends Migration
 {
@@ -20,13 +21,12 @@ return new class extends Migration
             $table->timestamps();
         });
 
-        Estado::create([
-            'estado' => 'Pendiente'
-        ]);
-
-        Estado::create([
-            'estado' => 'Revisado'
-        ]);
+        DB::table('estados')->insert(
+            ['estado' => 'Pendiente']
+        );
+        DB::table('estados')->insert(
+            ['estado' => 'Revisado']
+        );
 
         //Crea los Roles
         $role1 = Role::create(['name' => 'admin']);
