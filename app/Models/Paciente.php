@@ -15,4 +15,7 @@ class Paciente extends Model
     public function HistorialPacientes(){
         return $this->belongsTo(Historial::class, 'id', "paciente_id");
     }
+    public function SexoPacientes(){
+        return $this->belongsTo(Sexo::class, 'id', "sexo");
+    }
 }

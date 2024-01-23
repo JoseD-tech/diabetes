@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Inertia\Inertia;
 use App\Models\Paciente;
+use App\Models\Sexo;
 use Illuminate\Http\Request;
 
 class PacienteController extends Controller
@@ -25,7 +26,9 @@ class PacienteController extends Controller
     public function create()
     {
         //
-        return Inertia::render('Pacientes/Create');
+        return Inertia::render('Pacientes/Create', [
+            'sexos' => Sexo::all()
+        ]);
     }
 
     /**
@@ -38,6 +41,8 @@ class PacienteController extends Controller
         $paciente->nombre = $request->input('nombre');
         $paciente->apellido = $request->input('apellido');
         $paciente->cedula = $request->input('cedula');
+        $paciente->edad = $request->input('edad');
+        $paciente->sexo = $request->input('sexo');
         $paciente->telefono = $request->input('telefono');
         $paciente->save();
         return to_route('paciente.index');
@@ -57,8 +62,10 @@ class PacienteController extends Controller
     public function edit(Paciente $paciente)
     {
         //
+        $sexo = Sexo::all();
         return Inertia::render('Pacientes/Edit', [
-            'paciente' => $paciente
+            'sexos' => $sexo,
+            'paciente' => $paciente,
         ]);
     }
 

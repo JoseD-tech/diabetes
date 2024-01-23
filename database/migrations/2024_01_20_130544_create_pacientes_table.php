@@ -7,7 +7,7 @@ use Illuminate\Support\Facades\Schema;
 return new class extends Migration
 {
     /**
-     * Run the migrations.
+     * Run the migrations. edad, sexo, idice de masa colporal, glucosa pre y pos trigliserios colesterol
      */
     public function up(): void
     {
@@ -15,6 +15,9 @@ return new class extends Migration
             $table->id();
             $table->string('nombre')->require();
             $table->string('apellido')->require();
+            $table->string('edad')->require();
+            $table->unsignedBigInteger('sexo');
+            $table->foreign('sexo')->references("id")->on('sexos');
             $table->string('cedula')->require();
             $table->string('telefono')->require();
             $table->timestamps();

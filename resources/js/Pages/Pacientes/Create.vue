@@ -35,6 +35,20 @@
                                     class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
                                     placeholder="04145024456" required maxlength="11">
                             </div>
+                            <div>
+                                <label for="edad" class="block mb-2 text-sm font-medium text-black">Edad</label>
+                                <input type="text" v-model="form.edad"
+                                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+                                    placeholder="29" required maxlength="3">
+                            </div>
+                            <div>
+                                <label for="sexo" class="block mb-2 text-sm font-medium text-black">Rol</label>
+                                <select v-model="form.sexo"
+                                    class="mb-5 mt-2 text-gray-600 focus:outline-none focus:border focus:border-indigo-700 font-normal w-full h-10 flex items-center pl-3 text-sm border-gray-300 rounded border">
+                                    <option :value="sexo.id" v-for="sexo in props.sexos" :key="sexo.id">
+                                        {{ sexo.sexo }}</option>
+                                </select>
+                            </div>
 
                         </div>
                         <div class="w-100">
@@ -56,10 +70,16 @@ import { Head } from '@inertiajs/vue3';
 import { reactive } from 'vue'
 import { router } from '@inertiajs/vue3'
 
+const props = defineProps({
+    sexos: Object
+})
+
 const form = reactive({
     nombre: '',
     apellido: '',
     cedula: '',
+    edad: '',
+    sexo: '',
     telenofo: ''
 })
 

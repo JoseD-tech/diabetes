@@ -6,7 +6,6 @@
          class="overflow-y-auto fixed inset-y-0 left-0 z-30 w-64 bg-gray-900 transition duration-300 transform lg:translate-x-0 lg:static lg:inset-0">
         <div class="flex justify-center items-center mt-8">
             <div class="flex items-center">
-                <ApplicationLogo style="height: 50px;"/>
                 <span class="mx-2 text-2xl font-semibold text-white">DiaSyS</span>
             </div>
         </div>
