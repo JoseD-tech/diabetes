@@ -79,6 +79,8 @@ class PacienteController extends Controller
         $paciente->nombre = $request->input('nombre');
         $paciente->apellido = $request->input('apellido');
         $paciente->cedula = $request->input('cedula');
+        $paciente->edad = $request->input('edad');
+        $paciente->sexo = $request->input('sexo');
         $paciente->telefono = $request->input('telefono');
         $paciente->save();
         return to_route('paciente.index');
