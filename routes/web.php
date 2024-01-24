@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\CitasController;
 use App\Http\Controllers\DoctorController;
+use App\Http\Controllers\RecetaController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\PacienteController;
 use App\Http\Controllers\SecretariaController;
@@ -78,6 +79,7 @@ Route::middleware('auth')->group(function () {
     });
 
     Route::resource('/paciente', PacienteController::class);
+    Route::resource('/recetas', RecetaController::class);
     Route::resource('/citas', CitasController::class);
     Route::get('/citas/export', [CitasController::class, 'export'])->name('citas.export');
 });

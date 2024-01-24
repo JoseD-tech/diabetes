@@ -132,6 +132,8 @@
                         <p>Cedula: {{ citaSeleccionada.paciente_cita.cedula }}</p>
                         <p>Telefono: {{ citaSeleccionada.paciente_cita.telefono }}</p>
                         <p>Sintomas: {{ citaSeleccionada.decripcion }}</p>
+                        <p>Telefono: {{ citaSeleccionada.paciente_cita.edad }}</p>
+                        <p>Sintomas: {{ (citaSeleccionada.sexo == 1 ? 'Masculino' : 'Femenino' ) }}</p>
                     </div>
                     <div>
                         <h3 class="mt-4 text-gray-800 font-bold leading-tight tracking-normal text-xl">
@@ -197,6 +199,8 @@
                         <p>Cedula: {{ citaAtenderSeleccionada.paciente_cita.cedula }}</p>
                         <p>Telefono: {{ citaAtenderSeleccionada.paciente_cita.telefono }}</p>
                         <p>Sintomas: {{ citaAtenderSeleccionada.decripcion }}</p>
+                        <p>Edad: {{ citaAtenderSeleccionada.paciente_cita.edad }}</p>
+                        <p>Sexo: {{ (citaAtenderSeleccionada.paciente_cita.sexo == 1 ? 'Masculino' : 'Femenino' ) }}</p>
                     </div>
                     <div>
                         <h3 class="mt-4 text-gray-800 font-bold leading-tight tracking-normal text-xl">
