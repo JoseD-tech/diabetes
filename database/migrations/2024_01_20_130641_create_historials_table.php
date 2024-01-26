@@ -17,6 +17,15 @@ return new class extends Migration
             $table->text("doctor")->require();
             $table->text('descripcion')->require();
             $table->text("resultado")->require();
+            $table->boolean('oc')->default(false);
+            $table->boolean('pp')->default(false);
+            $table->boolean('phe')->default(false);
+            $table->boolean('emp')->default(false);
+            $table->boolean('he')->default(false);
+            $table->boolean('afd')->default(false);
+            $table->boolean('pem')->default(false);
+            $table->boolean('dc')->default(false);
+            $table->boolean('oa')->default(false);
             $table->timestamps();
         });
     }

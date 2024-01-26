@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Historial;
+use App\Models\Paciente;
 use App\Models\Receta;
 use Illuminate\Http\Request;
 use Inertia\Inertia;
@@ -25,6 +27,7 @@ class RecetaController extends Controller
     public function create()
     {
         //
+        return Inertia::render('Recetas/Create');
     }
 
     /**
@@ -33,6 +36,21 @@ class RecetaController extends Controller
     public function store(Request $request)
     {
         //
+        $receta = new Receta;
+        $receta->titulo = $request->input('titulo');
+        $receta->descripcion = $request->input('descripcion');
+        $receta->receta = $request->input('receta');
+        /*$receta->oc = $request->input('oc');
+        $receta->pp = $request->input('pp');
+        $receta->phe = $request->input('phe');
+        $receta->emp = $request->input('emp');
+        $receta->he = $request->input('he');
+        $receta->afd = $request->input('afd');
+        $receta->pem = $request->input('pem');
+        $receta->dc = $request->input('dc');
+        $receta->oa = $request->input('oa');*/
+        $receta->save();
+        return to_route('recetas.index');
     }
 
     /**
@@ -65,5 +83,11 @@ class RecetaController extends Controller
     public function destroy(Receta $receta)
     {
         //
+    }
+
+    public function verdietas() {
+        // ver  las dietas
+        $paciente = Paciente::find(1);
+        dd($paciente);
     }
 }

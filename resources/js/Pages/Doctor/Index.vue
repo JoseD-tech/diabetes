@@ -83,8 +83,8 @@
                                                     </template>
 
                                                     <template v-if="cita.estado_id == 2">
-                                                        <button @click="mostrarReporte(cita.id)"
-                                                            class="bg-red-600 px-2 py-1 rounded-md text-white font-semibold tracking-wide cursor-pointer">Reporte</button>
+                                                        <Link :href="route('doctor.edit', cita.id)"
+                                                            class="bg-red-600 px-2 py-1 rounded-md text-white font-semibold tracking-wide cursor-pointer">Reporte</Link>
                                                     </template>
 
                                                 </td>
@@ -132,8 +132,8 @@
                         <p>Cedula: {{ citaSeleccionada.paciente_cita.cedula }}</p>
                         <p>Telefono: {{ citaSeleccionada.paciente_cita.telefono }}</p>
                         <p>Sintomas: {{ citaSeleccionada.decripcion }}</p>
-                        <p>Telefono: {{ citaSeleccionada.paciente_cita.edad }}</p>
-                        <p>Sintomas: {{ (citaSeleccionada.sexo == 1 ? 'Masculino' : 'Femenino' ) }}</p>
+                        <p>Edad: {{ citaSeleccionada.paciente_cita.edad }}</p>
+                        <p>Sexo: {{ (citaSeleccionada.sexo == 1 ? 'Masculino' : 'Femenino' ) }}</p>
                     </div>
                     <div>
                         <h3 class="mt-4 text-gray-800 font-bold leading-tight tracking-normal text-xl">
@@ -212,6 +212,223 @@
                             Fecha De La Cita</h3>
                         <p>Fecha de la Cita: {{ citaAtenderSeleccionada.fecha_cita }}</p>
                     </div>
+
+                    <div class="col-span-2">
+                                <h3 class="text-2xl capitalize mb-4">Motor de Inferencia</h3>
+                                <div class="grid grid-cols-2 md:grid-cols-3 gap-6">
+                                    <div class="mb-5">
+                                        <label class="mb-3 block text-base font-medium text-[#07074D]">
+                                            ¿Usted presenta orina constante? (OC)
+                                        </label>
+                                        <div class="flex items-center space-x-6">
+                                            <div class="flex items-center">
+                                                <input type="radio" id="oc1" :value="true" v-model="form.oc" class="h-5 w-5" />
+                                                <label for="oc1" class="pl-3 text-base font-medium text-[#07074D]">
+                                                    Si
+                                                </label>
+                                            </div>
+                                            <div class="flex items-center">
+                                                <input type="radio" id="oc2" :value="false" v-model="form.oc" class="h-5 w-5" />
+                                                <label for="oc2" class="pl-3 text-base font-medium text-[#07074D]">
+                                                    No
+                                                </label>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div>
+                                        <div class="mb-5">
+                                            <label class="mb-3 block text-base font-medium text-[#07074D]">
+                                                ¿Usted presenta pérdida de peso inexplicable? (PP)
+                                            </label>
+                                            <div class="flex items-center space-x-6">
+                                                <div class="flex items-center">
+                                                    <input type="radio" :value="true" id="pp1" v-model="form.pp" class="h-5 w-5" />
+                                                    <label for="pp1"
+                                                        class="pl-3 text-base font-medium text-[#07074D]">
+                                                        Si
+                                                    </label>
+                                                </div>
+                                                <div class="flex items-center">
+                                                    <input type="radio" :value="false" id="pp2" v-model="form.pp" class="h-5 w-5" />
+                                                    <label for="pp2"
+                                                        class="pl-3 text-base font-medium text-[#07074D]">
+                                                        No
+                                                    </label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div>
+                                        <div class="mb-5">
+                                            <label class="mb-3 block text-base font-medium text-[#07074D]">
+                                                ¿Usted presenta hinchazón en extremidades? (PHE)
+                                            </label>
+                                            <div class="flex items-center space-x-6">
+                                                <div class="flex items-center">
+                                                    <input type="radio" id="phe1" :value="true" v-model="form.phe" class="h-5 w-5" />
+                                                    <label for="phe1"
+                                                        class="pl-3 text-base font-medium text-[#07074D]">
+                                                        Si
+                                                    </label>
+                                                </div>
+                                                <div class="flex items-center">
+                                                    <input type="radio" id="phe2" :value="false" v-model="form.phe" class="h-5 w-5" />
+                                                    <label for="phe2"
+                                                        class="pl-3 text-base font-medium text-[#07074D]">
+                                                        No
+                                                    </label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div>
+                                        <div class="mb-5">
+                                            <label class="mb-3 block text-base font-medium text-[#07074D]">
+                                                ¿Usted presenta Entumecimiento de manos y pies? (EMP)
+                                            </label>
+                                            <div class="flex items-center space-x-6">
+                                                <div class="flex items-center">
+                                                    <input type="radio" id="emp1" :value="true" v-model="form.emp" class="h-5 w-5" />
+                                                    <label for="emp1"
+                                                        class="pl-3 text-base font-medium text-[#07074D]">
+                                                        Si
+                                                    </label>
+                                                </div>
+                                                <div class="flex items-center">
+                                                    <input type="radio" id="emp2" :value="false" v-model="form.emp" class="h-5 w-5" />
+                                                    <label for="emp2"
+                                                        class="pl-3 text-base font-medium text-[#07074D]">
+                                                        No
+                                                    </label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div>
+                                        <div class="mb-5">
+                                            <label class="mb-3 block text-base font-medium text-[#07074D]">
+                                                ¿Usted presenta hambre excesiva? (HE)
+                                            </label>
+                                            <div class="flex items-center space-x-6">
+                                                <div class="flex items-center">
+                                                    <input type="radio"  id="he1" :value="true" v-model="form.he" class="h-5 w-5" />
+                                                    <label for="he1"
+                                                        class="pl-3 text-base font-medium text-[#07074D]">
+                                                        Si
+                                                    </label>
+                                                </div>
+                                                <div class="flex items-center">
+                                                    <input type="radio"  id="he2" :value="false" v-model="form.he" class="h-5 w-5" />
+                                                    <label for="he2"
+                                                        class="pl-3 text-base font-medium text-[#07074D]">
+                                                        No
+                                                    </label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div>
+                                        <div class="mb-5">
+                                            <label class="mb-3 block text-base font-medium text-[#07074D]">
+                                                ¿Usted presenta Aumento de fatiga y debilidad? (AFD)
+                                            </label>
+                                            <div class="flex items-center space-x-6">
+                                                <div class="flex items-center">
+                                                    <input type="radio" id="efd1" :value="true" v-model="form.afd" class="h-5 w-5" />
+                                                    <label for="efd1"
+                                                        class="pl-3 text-base font-medium text-[#07074D]">
+                                                        Si
+                                                    </label>
+                                                </div>
+                                                <div class="flex items-center">
+                                                    <input type="radio" id="efd2" :value="false" v-model="form.afd" class="h-5 w-5" />
+                                                    <label for="edf2"
+                                                        class="pl-3 text-base font-medium text-[#07074D]">
+                                                        No
+                                                    </label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div>
+                                        <div class="mb-5">
+                                            <label class="mb-3 block text-base font-medium text-[#07074D]">
+                                                ¿Usted presenta perdida de equilibrio o mareo? (PEM)
+                                            </label>
+                                            <div class="flex items-center space-x-6">
+                                                <div class="flex items-center">
+                                                    <input type="radio" id="pem1" :value="true" v-model="form.pem" class="h-5 w-5" />
+                                                    <label for="pem1"
+                                                        class="pl-3 text-base font-medium text-[#07074D]">
+                                                        Si
+                                                    </label>
+                                                </div>
+                                                <div class="flex items-center">
+                                                    <input type="radio" id="pem2" :value="false" v-model="form.pem" class="h-5 w-5" />
+                                                    <label for="pem2"
+                                                        class="pl-3 text-base font-medium text-[#07074D]">
+                                                        No
+                                                    </label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div>
+                                        <div class="mb-5">
+                                            <label class="mb-3 block text-base font-medium text-[#07074D]">
+                                                ¿Usted presenta dolor de cabeza? (DC)
+                                            </label>
+                                            <div class="flex items-center space-x-6">
+                                                <div class="flex items-center">
+                                                    <input type="radio" id="dc1" :value="true" v-model="form.dc" class="h-5 w-5" />
+                                                    <label for="dc1"
+                                                        class="pl-3 text-base font-medium text-[#07074D]">
+                                                        Si
+                                                    </label>
+                                                </div>
+                                                <div class="flex items-center">
+                                                    <input type="radio" id="dc2" :value="false" v-model="form.dc" class="h-5 w-5" />
+                                                    <label for="dc2"
+                                                        class="pl-3 text-base font-medium text-[#07074D]">
+                                                        No
+                                                    </label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div>
+                                        <div class="mb-5">
+                                            <label class="mb-3 block text-base font-medium text-[#07074D]">
+                                                ¿Usted presenta ojos amarillos? (OA)
+                                            </label>
+                                            <div class="flex items-center space-x-6">
+                                                <div class="flex items-center">
+                                                    <input type="radio" id="oa1" :value="true" v-model="form.oa" class="h-5 w-5" />
+                                                    <label for="oa1"
+                                                        class="pl-3 text-base font-medium text-[#07074D]">
+                                                        Si
+                                                    </label>
+                                                </div>
+                                                <div class="flex items-center">
+                                                    <input type="radio" id="oa2" :value="false" v-model="form.oa" class="h-5 w-5" />
+                                                    <label for="oa2"
+                                                        class="pl-3 text-base font-medium text-[#07074D]">
+                                                        No
+                                                    </label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
 
                     <div>
                         <label for="resultado"
@@ -317,7 +534,7 @@
 import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout.vue';
 import Modal from '@/Components/Modal.vue';
 import { Head } from '@inertiajs/vue3';
-import { router } from '@inertiajs/vue3'
+import { router, Link } from '@inertiajs/vue3'
 import { reactive, ref } from 'vue';
 
 const props = defineProps({
@@ -337,7 +554,16 @@ const form = reactive({
     paciente: null,
     doctor: null,
     descripcion: null,
-    resultado: null
+    resultado: null,
+    oc: false,
+    pp: false,
+    phe: false,
+    emp: false,
+    he: false,
+    afd: false,
+    pem: false,
+    dc: false,
+    oa: false,
 })
 
 const atenderCita = (id) => {
@@ -353,7 +579,8 @@ const mostrarCita = (id) => {
 
 const mostrarReporte = (id) => {
     citaReporte.value = props.reporte.find((reporte) => reporte.id === id);
-    verReporte.value = !verReporte.value
+    console.log(props.reporte.find((reporte) => reporte.id === id));
+    //verReporte.value = !verReporte.value
 }
 
 const guardarCita = () => {

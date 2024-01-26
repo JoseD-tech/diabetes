@@ -3,12 +3,18 @@
 
     <AuthenticatedLayout>
         <template #header>
-            Recetas para pacientes
+            Recetas Para Pacientes
         </template>
 
         <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
             <div class="p-6 border-b border-gray-200">
                 <div class="bg-white rounded-md w-full">
+                    <div class="flex justify-end item-center py-2">
+                    <Link :href="route('recetas.create')"
+                        class="border border-green-500 bg-green-500 text-white rounded-md px-4 py-2 m-2 transition duration-500 ease select-none hover:bg-green-600 focus:outline-none focus:shadow-outline">
+                        Crear Recetas
+                    </Link>
+                </div>
                     <div>
                         <div class="-mx-4 sm:-mx-8 px-4 sm:px-8 py-4 overflow-x-auto">
                             <div v-if="props.recetas.length > 0"
@@ -40,11 +46,6 @@
                                             <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
                                                 <p class="text-gray-900 whitespace-no-wrap">{{ receta.descripcion }}</p>
                                             </td>
-                                            <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
-                                                <p class="text-gray-900 whitespace-no-wrap">
-                                                    {{ receta.receta }}
-                                                </p>
-                                            </td>
                                             <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm space-x-2">
                                                 <button @click="mostrarCita(receta.id)"
                                                     class="bg-yellow-600 px-2 py-1 rounded-md text-white font-semibold tracking-wide cursor-pointer">Ver
@@ -55,7 +56,7 @@
                                 </table>
                             </div>
                             <p v-else>
-                                No Hay Consultas
+                                No Hay Recetas
                             </p>
                         </div>
                     </div>
@@ -110,7 +111,7 @@
 <script setup>
 import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout.vue';
 import Modal from '@/Components/Modal.vue';
-import { Head } from '@inertiajs/vue3';
+import { Head, Link } from '@inertiajs/vue3';
 import { router } from '@inertiajs/vue3'
 import { reactive, ref } from 'vue';
 

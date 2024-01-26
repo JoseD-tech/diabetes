@@ -6,6 +6,8 @@ use App\Models\Citas;
 use Inertia\Inertia;
 use App\Models\Doctor;
 use App\Models\Historial;
+use App\Models\Paciente;
+use App\Models\Receta;
 use Illuminate\Http\Request;
 
 class DoctorController extends Controller
@@ -19,9 +21,11 @@ class DoctorController extends Controller
 
         $citas = Citas::with('PacienteCita')->get();
         $historial = Historial::with('HistoriaPaciente')->get();
+        $recetas = Receta::all();
         return Inertia::render('Doctor/Index', [
             'citas' => $citas,
-            'reporte' => $historial
+            'reporte' => $historial,
+            'recetas' => $recetas
         ]);
     }
 
@@ -46,6 +50,15 @@ class DoctorController extends Controller
         $consulta->doctor = $request->input("doctor");
         $consulta->descripcion = $request->input("descripcion");
         $consulta->resultado = $request->input("resultado");
+        $consulta->oc = $request->input('oc');
+        $consulta->pp = $request->input('pp');
+        $consulta->phe = $request->input('phe');
+        $consulta->emp = $request->input('emp');
+        $consulta->he = $request->input('he');
+        $consulta->afd = $request->input('afd');
+        $consulta->pem = $request->input('pem');
+        $consulta->dc = $request->input('dc');
+        $consulta->oa = $request->input('oa');
         $consulta->save();
 
         // cambia el estado de la cita
@@ -67,11 +80,15 @@ class DoctorController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Doctor $doctor)
+    public function edit($id)
     {
         //
+        $paciente = Paciente::find($id);
+        $historial = Historial::with('HistoriaPaciente')->find($id);
+        dd($paciente, $historial);
         return Inertia::render('Doctor/Edit', [
-            'doctor' => $doctor
+            'pacientes' => $paciente,
+            'historial' => $historial
         ]);
     }
 
