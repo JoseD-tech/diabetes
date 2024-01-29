@@ -42,7 +42,7 @@
                                     placeholder="29" required maxlength="3">
                             </div>
                             <div>
-                                <label for="sexo" class="block mb-2 text-sm font-medium text-black">Rol</label>
+                                <label for="sexo" class="block mb-2 text-sm font-medium text-black">Sexo</label>
                                 <select v-model="form.sexo"
                                     class="mb-5 mt-2 text-gray-600 focus:outline-none focus:border focus:border-indigo-700 font-normal w-full h-10 flex items-center pl-3 text-sm border-gray-300 rounded border">
                                     <option :value="sexo.id" v-for="sexo in props.sexos" :key="sexo.id">

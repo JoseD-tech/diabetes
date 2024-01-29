@@ -13,7 +13,7 @@ class Paciente extends Model
         return $this->belongsTo(Citas::class, 'id', 'paciente_id');
     }
     public function HistorialPacientes(){
-        return $this->belongsTo(Historial::class, 'id', "paciente_id");
+        return $this->belongsTo(Historial::class, "paciente_id", 'id');
     }
     public function SexoPacientes(){
         return $this->belongsTo(Sexo::class, 'id', "sexo");

@@ -17,6 +17,9 @@ return new class extends Migration
             $table->text("doctor")->require();
             $table->text('descripcion')->require();
             $table->text("resultado")->require();
+            $table->float("peso")->require();
+            $table->integer("altura")->require();
+            $table->integer("glisemia")->require();
             $table->boolean('oc')->default(false);
             $table->boolean('pp')->default(false);
             $table->boolean('phe')->default(false);

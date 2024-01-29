@@ -50,6 +50,9 @@ class DoctorController extends Controller
         $consulta->doctor = $request->input("doctor");
         $consulta->descripcion = $request->input("descripcion");
         $consulta->resultado = $request->input("resultado");
+        $consulta->peso = $request->input("peso");
+        $consulta->altura = $request->input("altura");
+        $consulta->glisemia = $request->input("glisemia");
         $consulta->oc = $request->input('oc');
         $consulta->pp = $request->input('pp');
         $consulta->phe = $request->input('phe');
@@ -84,11 +87,12 @@ class DoctorController extends Controller
     {
         //
         $paciente = Paciente::find($id);
-        $historial = Historial::with('HistoriaPaciente')->find($id);
-        dd($paciente, $historial);
+        $historial = Historial::where('paciente_id', $id)->get();
+        $recetas = Receta::all();
         return Inertia::render('Doctor/Edit', [
             'pacientes' => $paciente,
-            'historial' => $historial
+            'historial' => $historial,
+            'recetas' => $recetas
         ]);
     }
 

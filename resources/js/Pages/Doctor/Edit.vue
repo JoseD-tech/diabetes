@@ -3,23 +3,100 @@
 
     <AuthenticatedLayout>
         <template #header>
-            Editar Doctor
+            Historia Medica del Paciente {{ pacientes.nombre }} {{ pacientes.apellido }}
         </template>
 
         <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
             <div class="p-6 border-b border-gray-200">
-                <div class="flex items-center justify-center">
-                    <form @submit.prevent="update(props.doctor.id)">
-                        <div class="grid w-80 grid-rows-4 gap-1">
-                            <p class="font-semibold text-gray-700">Nombre Del Doctor:</p>
-                            <input type="text" class="h-10 w-full rounded border p-2 text-sm mb-2" v-model="form.doctor"
-                                placeholder="Nombre" />
-                            <button type="submit"
-                                class="border border-green-500 bg-green-500 text-white rounded-md py-2 transition duration-500 ease select-none hover:bg-green-600 focus:outline-none focus:shadow-outline">Registrar
-                                Doctor</button>
-                        </div>
-                    </form>
+                <div class="">
+                    <h4 class="text-2xl mb-2 font-bold">Datos del paciente:</h4>
+                    <p class="text-lg ">Nombre: {{ pacientes.nombre }}</p>
+                    <p class="text-lg">Apellido: {{ pacientes.apellido }}</p>
+                    <p class="text-lg">Telefono: {{ pacientes.telefono }}</p>
+                    <p class="text-lg">Cedula: {{ pacientes.cedula }}</p>
+                    <p class="text-lg">Edad: {{ pacientes.edad }}</p>
+                    <p class="text-lg">Sexo: {{ pacientes.sexo == 1 ? 'Masculino' : 'Femenino' }}</p>
+                </div>
+                <div class="my-4    ">
+                    <h4 class="text-2xl mb-2 font-bold">Resultados medicos:</h4>
+                    <template
+                        v-if="props.historial[0].oc == 1 && props.historial[0].pp == 1 && props.historial[0].emp == 1 && props.historial[0].he == 1 && props.historial[0].afd == 1">
+                        <p class="text-lg ">Estado de diabetes: Paciente en estado diabetico</p>
+                    </template>
+                    <template v-else>
+                        <p class="text-lg ">Estado de diabetes: Paciente no</p>
+                    </template>
+                    <div>
+                        <template v-if="pacientes.edad >= 18 && pacientes.edad <= 30">
+                            <p class="text-lg ">Persona: Joven </p>
+                        </template>
+                        <template v-else-if="pacientes.edad >= 31 && pacientes.edad <= 59">
+                            <p class="text-lg ">Persona: Adulta</p>
+                        </template>
+                        <template v-if="pacientes.edad >= 60">
+                            <p class="text-lg ">Persona: Adulto Mayor</p>
+                        </template>
+                    </div>
+                    <p class="text-lg ">Peso: {{ historial[0].peso }}</p>
+                    <p class="text-lg">Altura: {{ historial[0].altura }}</p>
+                    <p class="text-lg">Glisemia: {{ historial[0].glisemia }}</p>
+                    <p class="text-lg capitalize">Indice de masa corporal: {{ indice.toFixed(2) }}</p>
+                    <div>
+                        <template v-if="(pacientes.edad >= 18 && pacientes.edad <= 30) && indice.toFixed(2) <= 18.5">
+                            <p class="text-lg ">Estado Nutricional: Delgadez </p>
+                        </template>
+                        <template v-else-if="(pacientes.edad >= 31 && pacientes.edad <= 59) && indice.toFixed(2) <= 18.5">
+                            <p class="text-lg ">Estado Nutricional: Delgadez </p>
+                        </template>
+                        <template v-else-if="(pacientes.edad >= 60) && indice.toFixed(2) <= 23">
+                            <p class="text-lg ">Estado Nutricional: Delgadez </p>
+                        </template>
+                        <template
+                            v-else-if="(pacientes.edad >= 18 && pacientes.edad <= 30) && (indice.toFixed(2) > 18.5 && indice.toFixed(2) < 24.9)">
+                            <p class="text-lg ">Estado Nutricional: Normopeso </p>
+                        </template>
+                        <template
+                            v-else-if="(pacientes.edad >= 31 && pacientes.edad <= 59) && (indice.toFixed(2) > 18.5 && indice.toFixed(2) < 24.9)">
+                            <p class="text-lg ">Estado Nutricional: Normopeso </p>
+                        </template>
+                        <template v-else-if="(pacientes.edad >= 60) && (indice.toFixed(2) > 23 && indice.toFixed(2) < 28)">
+                            <p class="text-lg ">Estado Nutricional: Normopeso </p>
+                        </template>
+                        <template v-else-if="(pacientes.edad >= 18 && pacientes.edad <= 59) && indice.toFixed(2) >= 25">
+                            <p class="text-lg ">Estado Nutricional: Sobrepeso </p>
+                        </template>
+                        <template v-else-if="(pacientes.edad >= 60) && indice.toFixed(2) >= 28">
+                            <p class="text-lg ">Estado Nutricional: Sobrepeso </p>
+                        </template>
+                    </div>
+                    <div>
+                        <template v-if="historial[0].glisemia < 140">
+                            <p class="text-lg ">Estado de Glucosa: Normal </p>
+                        </template>
+                        <template v-else-if="historial[0].glisemia >= 140">
+                            <p class="text-lg ">Estado de Glucosa: Alterada</p>
+                        </template>
+                    </div>
+                    <div>
+                        <template v-if="(indice.toFixed(2) <= 18.5) && historial[0].glisemia < 140">
+                            <p class="text-lg ">Tipo de Dieta: Hipercalorica </p>
+                        </template>
+                        <template
+                            v-else-if="(indice.toFixed(2) > 18.5 && indice.toFixed(2) < 24.9) && historial[0].glisemia < 140">
+                            <p class="text-lg ">Tipo de Dieta: Normocalórica </p>
+                        </template>
+                        <template v-else-if="(indice.toFixed(2) >= 25) && historial[0].glisemia >= 140">
+                            <p class="text-lg ">Tipo de Dieta: Hipocalórica </p>
+                        </template>
 
+                    </div>
+                    <div>
+                        <h4 class="text-2xl my-2 font-bold">Receta:</h4>
+                        <h4 class="text-xl my-2 font-bold">Nombre de la receta: {{ recetas[ramdonreceta].titulo }}</h4>
+                        <p class="text-md my-2 font-bold">Descripcion de la receta: {{ recetas[ramdonreceta].descripcion }}</p>
+                        <p class="text-md my-2 font-bold">Receta: <br>
+                            {{ recetas[ramdonreceta].receta }}</p>
+                    </div>
                 </div>
             </div>
         </div>
@@ -27,21 +104,24 @@
 </template>
 
 <script setup>
+
 import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout.vue';
 import { Head } from '@inertiajs/vue3';
 import { reactive } from 'vue'
 import { router } from '@inertiajs/vue3'
 
 const props = defineProps({
-    doctor: Object
+    pacientes: Object,
+    historial: Object,
+    recetas: Object
 })
 
-const form = reactive({
-    doctor: props.doctor.doctor
-})
+const receta = props.recetas.length
+const ramdonreceta = Math.floor(Math.random() * receta)
 
-function update(id) {
-    router.put(`/doctor/${id}`, form)
-}
+console.log(receta, ramdonreceta);
+
+const indice = props.historial[0].peso / (Math.pow((props.historial[0].altura / 100), 2))
+
 
 </script>
