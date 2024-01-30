@@ -95,7 +95,8 @@
                         <h4 class="text-xl my-2 font-bold">Nombre de la receta: {{ recetas[ramdonreceta].titulo }}</h4>
                         <p class="text-md my-2 font-bold">Descripcion de la receta: {{ recetas[ramdonreceta].descripcion }}</p>
                         <p class="text-md my-2 font-bold">Receta: <br>
-                            {{ recetas[ramdonreceta].receta }}</p>
+                        <div v-html="recetas[ramdonreceta].receta"></div>
+                        </p>
                     </div>
                 </div>
             </div>

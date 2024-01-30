@@ -16,6 +16,8 @@ return new class extends Migration
             $table->string('titulo');
             $table->string('descripcion');
             $table->text('receta');
+            $table->unsignedBigInteger('categoria_id');
+            $table->foreign('categoria_id')->references("id")->on('categorias');
             /*
             $table->boolean('oc')->default(false);
             $table->boolean('pp')->default(false);

@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Historial;
+use App\Models\Categoria;
 use App\Models\Paciente;
 use App\Models\Receta;
 use Illuminate\Http\Request;
@@ -27,7 +27,10 @@ class RecetaController extends Controller
     public function create()
     {
         //
-        return Inertia::render('Recetas/Create');
+        $categoria = Categoria::all();
+        return Inertia::render('Recetas/Create', [
+            'categorias' => $categoria
+        ]);
     }
 
     /**
@@ -40,6 +43,7 @@ class RecetaController extends Controller
         $receta->titulo = $request->input('titulo');
         $receta->descripcion = $request->input('descripcion');
         $receta->receta = $request->input('receta');
+        $receta->categoria_id = $request->input('categoria');
         /*$receta->oc = $request->input('oc');
         $receta->pp = $request->input('pp');
         $receta->phe = $request->input('phe');

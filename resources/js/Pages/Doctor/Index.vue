@@ -597,8 +597,7 @@ const mostrarCita = (id) => {
 
 const mostrarReporte = (id) => {
     citaReporte.value = props.reporte.find((reporte) => reporte.id === id);
-    console.log(props.reporte.find((reporte) => reporte.id === id));
-    //verReporte.value = !verReporte.value
+    verReporte.value = !verReporte.value
 }
 
 const guardarCita = () => {

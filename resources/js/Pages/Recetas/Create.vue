@@ -240,17 +240,30 @@
                                     </div>
                                 </div>
                             </div>-->
+                            <div>
+                                <label for="telefono" class="block mb-2 text-sm font-medium text-black">Categoria de la receta</label>
+                                <select v-model="form.categoria"
+                                    class="mb-5 mt-2 text-gray-600 focus:outline-none focus:border focus:border-indigo-700 font-normal w-full h-10 flex items-center pl-3 text-sm border-gray-300 rounded border">
+                                    <option selected disabled>Seleccione un categoria</option>
+                                    <template v-for="categoria in $attrs.categorias" :key="categoria.id">
+                                        <option :value="categoria.id">
+                                            {{ categoria.categoria }}</option>
+                                    </template>
+
+                                </select>
+                            </div>
                             <div class="col-span-2">
                                 <label for="receta" class="block mb-2 text-sm font-medium text-black capitalize">Como hacer
                                     la dieta</label>
-                                <textarea id="receta" v-model="form.receta" cols="30" rows="10" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"></textarea>
+                                <QuillEditor class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" theme="snow" contentType="html"  v-model:content="form.receta"></QuillEditor>
                             </div>
                         </div>
                         <div class="w-100">
                             <button type="submit"
-                                class="block m-0 m-auto w-full  border border-green-500 bg-green-500 text-white rounded-md py-2 px-2 transition duration-500 ease select-none hover:bg-green-600 focus:outline-none focus:shadow-outline ">Registrar
+                                class="block m-auto w-full  border border-green-500 bg-green-500 text-white rounded-md py-2 px-2 transition duration-500 ease select-none hover:bg-green-600 focus:outline-none focus:shadow-outline mt-20">Registrar
                                 Receta</button>
                         </div>
+
                     </form>
 
                 </div>
@@ -264,10 +277,17 @@ import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout.vue';
 import { Head } from '@inertiajs/vue3';
 import { reactive } from 'vue'
 import { router } from '@inertiajs/vue3'
+import { QuillEditor } from '@vueup/vue-quill'
+import '@vueup/vue-quill/dist/vue-quill.snow.css';
+
+const props = reactive({
+    categorias: Object
+})
 
 const form = reactive({
     titulo: '',
     descripcion: '',
+    categoria: '',
     receta: '',
     /*oc: false,
     pp: false,

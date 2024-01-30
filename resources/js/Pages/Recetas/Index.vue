@@ -68,18 +68,17 @@
             <div role="alert">
                 <div class="relative py-8 px-5 md:px-10 bg-white shadow-md rounded border border-gray-400">
                     <h1 class="text-gray-800 font-lg font-bold tracking-normal leading-tight mb-4 text-2xl">
-                        Receta medica
+                        Receta
                     </h1>
                     <div>
-                        <h3 class="text-gray-800 font-bold leading-tight tracking-normal text-xl">
-                            {{ citaSeleccionada.titulo }}</h3>
+                        <h3 class="text-gray-800 leading-tight tracking-normal text-xl">
+                            Titulo: {{ citaSeleccionada.titulo }}</h3>
                     </div>
                     <div>
-                        <p class="text-gray-800 font-bold leading-tight tracking-normal text-xl mt-4">{{ citaSeleccionada.descripcion }}</p>
+                        <p class="text-gray-800 leading-tight tracking-normal text-xl mt-4">Decripcion: {{ citaSeleccionada.descripcion }}</p>
                     </div>
 
-                    <div>
-                        <p class="text-gray-800 font-bold leading-tight tracking-normal text-xl mt-4">{{ citaSeleccionada.descripcion }}</p>
+                    <div v-html="citaSeleccionada.receta">
                     </div>
 
 
@@ -130,43 +129,10 @@ const form = reactive({
     resultado: null
 })
 
-const atenderCita = (id) => {
-    citaAtenderSeleccionada.value = props.citas.find((cita) => cita.id === id);
-    form.id = id
-    modalAtender.value = !modalAtender.value
-}
 
 const mostrarCita = (id) => {
-    citaSeleccionada.value = props.citas.find((cita) => cita.id === id);
+    citaSeleccionada.value = props.recetas.find((cita) => cita.id === id);
     verCita.value = !verCita.value
 }
-
-const mostrarReporte = (id) => {
-    citaReporte.value = props.reporte.find((reporte) => reporte.id === id);
-    verReporte.value = !verReporte.value
-}
-
-const guardarCita = () => {
-    if (citaAtenderSeleccionada) {
-        form.descripcion = citaAtenderSeleccionada.value.decripcion
-        form.doctor = citaAtenderSeleccionada.value.doctor
-        form.paciente = citaAtenderSeleccionada.value.paciente_id
-    }
-    router.post(`/doctor`, form)
-
-    //resetear valores
-    form.id.value = null
-    form.descripcion.value = null
-    form.doctor.value = null
-    form.paciente.value = null
-    form.resultado.value = null
-
-    modalAtender.value = !modalAtender.value
-}
-
-const exportData = () => {
-    window.open('/citas/export', '_blank')
-}
-
 
 </script>
