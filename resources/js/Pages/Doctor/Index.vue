@@ -86,7 +86,7 @@
                                                     <template v-if="cita.estado_id == 2">
                                                         <Link :href="route('doctor.edit', cita.id)"
                                                             class="bg-red-600 px-2 py-1 rounded-md text-white font-semibold tracking-wide cursor-pointer">
-                                                        Reporte</Link>
+                                                        Diagnostico</Link>
                                                     </template>
 
                                                 </td>
