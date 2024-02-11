@@ -120,7 +120,6 @@ const props = defineProps({
 const receta = props.recetas.length
 const ramdonreceta = Math.floor(Math.random() * receta)
 
-console.log(receta, ramdonreceta);
 
 const indice = props.historial[0].peso / (Math.pow((props.historial[0].altura / 100), 2))
 

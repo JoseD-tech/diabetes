@@ -23,15 +23,14 @@
                         </svg>
                     </div>
                     <div class="p-4 text-right">
-                        <p class="block antialiased font-sans text-sm leading-normal font-normal text-blue-gray-600">Today's
-                            Money</p>
+                        <p class="block antialiased font-sans text-sm leading-normal font-normal text-blue-gray-600">Citas Del Dia</p>
                         <h4
                             class="block antialiased tracking-normal font-sans text-2xl font-semibold leading-snug text-blue-gray-900">
-                            $53k</h4>
+                            {{ props.citas }}</h4>
                     </div>
                     <div class="border-t border-blue-gray-50 p-4">
                         <p class="block antialiased font-sans text-base leading-relaxed font-normal text-blue-gray-600">
-                            <strong class="text-green-500">+55%</strong>&nbsp;than last week
+                            <strong class="text-green-500">+55%</strong>&nbsp; De atencion en citas
                         </p>
                     </div>
                 </div>
@@ -46,15 +45,14 @@
                         </svg>
                     </div>
                     <div class="p-4 text-right">
-                        <p class="block antialiased font-sans text-sm leading-normal font-normal text-blue-gray-600">Today's
-                            Users</p>
+                        <p class="block antialiased font-sans text-sm leading-normal font-normal text-blue-gray-600">Pacientes Atentedidos</p>
                         <h4
                             class="block antialiased tracking-normal font-sans text-2xl font-semibold leading-snug text-blue-gray-900">
-                            2,300</h4>
+                            {{ props.pacientes }}</h4>
                     </div>
                     <div class="border-t border-blue-gray-50 p-4">
                         <p class="block antialiased font-sans text-base leading-relaxed font-normal text-blue-gray-600">
-                            <strong class="text-green-500">+3%</strong>&nbsp;than last month
+                            <strong class="text-green-500">+80%</strong>&nbsp;Atendidos los ultimos menses
                         </p>
                     </div>
                 </div>
@@ -69,15 +67,14 @@
                         </svg>
                     </div>
                     <div class="p-4 text-right">
-                        <p class="block antialiased font-sans text-sm leading-normal font-normal text-blue-gray-600">New
-                            Clients</p>
+                        <p class="block antialiased font-sans text-sm leading-normal font-normal text-blue-gray-600">Nuevos pacientes</p>
                         <h4
                             class="block antialiased tracking-normal font-sans text-2xl font-semibold leading-snug text-blue-gray-900">
-                            3,462</h4>
+                            {{ props.pacientes }}</h4>
                     </div>
                     <div class="border-t border-blue-gray-50 p-4">
                         <p class="block antialiased font-sans text-base leading-relaxed font-normal text-blue-gray-600">
-                            <strong class="text-red-500">-2%</strong>&nbsp;than yesterday
+                            <strong class="text-green-500">60%</strong>&nbsp;pacientes del dia
                         </p>
                     </div>
                 </div>
@@ -92,15 +89,15 @@
                         </svg>
                     </div>
                     <div class="p-4 text-right">
-                        <p class="block antialiased font-sans text-sm leading-normal font-normal text-blue-gray-600">Sales
+                        <p class="block antialiased font-sans text-sm leading-normal font-normal text-blue-gray-600">Actividades totales
                         </p>
                         <h4
                             class="block antialiased tracking-normal font-sans text-2xl font-semibold leading-snug text-blue-gray-900">
-                            $103,430</h4>
+                            {{ props.pacientes}}</h4>
                     </div>
                     <div class="border-t border-blue-gray-50 p-4">
                         <p class="block antialiased font-sans text-base leading-relaxed font-normal text-blue-gray-600">
-                            <strong class="text-green-500">+5%</strong>&nbsp;than yesterday
+                            <strong class="text-green-500">80%</strong>&nbsp;Ultima semana
                         </p>
                     </div>
                 </div>
@@ -112,4 +109,13 @@
 <script setup>
 import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout.vue'
 import { Head } from '@inertiajs/vue3';
+
+const props = defineProps({
+    citas: Number,
+    pacientes: Number,
+    doctor: Number,
+    secretario: Number
+})
+
+
 </script>
