@@ -64,6 +64,10 @@
             </div>
         </div>
 
+        <div class="pt-6">
+            <p class="text-3xl font-extrabold text-blue-800">Recomendaciones alimenticias en 3 categorías: Hipocalórica, normocalorica y hipercalorica</p>
+        </div>
+
         <Modal :show="verCita">
             <div role="alert">
                 <div class="relative py-8 px-5 md:px-10 bg-white shadow-md rounded border border-gray-400">

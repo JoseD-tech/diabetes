@@ -16,16 +16,6 @@
                     <p class="text-lg">Cedula: {{ pacientes.cedula }}</p>
                     <p class="text-lg">Edad: {{ pacientes.edad }}</p>
                     <p class="text-lg">Sexo: {{ pacientes.sexo == 1 ? 'Masculino' : 'Femenino' }}</p>
-                </div>
-                <div class="my-4    ">
-                    <h4 class="text-2xl mb-2 font-bold">Resultados medicos:</h4>
-                    <template
-                        v-if="props.historial[0].oc == 1 && props.historial[0].pp == 1 && props.historial[0].emp == 1 && props.historial[0].he == 1 && props.historial[0].afd == 1">
-                        <p class="text-lg ">Estado de diabetes: Paciente en estado diabetico</p>
-                    </template>
-                    <template v-else>
-                        <p class="text-lg ">Estado de diabetes: Paciente no</p>
-                    </template>
                     <div>
                         <template v-if="pacientes.edad >= 18 && pacientes.edad <= 30">
                             <p class="text-lg ">Persona: Joven </p>
@@ -41,6 +31,16 @@
                     <p class="text-lg">Altura: {{ historial[0].altura }}</p>
                     <p class="text-lg">Glisemia: {{ historial[0].glisemia }}</p>
                     <p class="text-lg capitalize">Indice de masa corporal: {{ indice.toFixed(2) }}</p>
+                </div>
+                <div class="my-4    ">
+                    <h4 class="text-2xl mb-2 font-bold">Diagnóstico Médico:</h4>
+                    <template
+                        v-if="props.historial[0].oc == 1 && props.historial[0].pp == 1 && props.historial[0].emp == 1 && props.historial[0].he == 1 && props.historial[0].afd == 1">
+                        <p class="text-lg ">Estado de diabetes: Paciente en estado diabetico</p>
+                    </template>
+                    <template v-else>
+                        <p class="text-lg ">Estado de diabetes: No diabetico</p>
+                    </template>
                     <div>
                         <template v-if="(pacientes.edad >= 18 && pacientes.edad <= 30) && indice.toFixed(2) <= 18.5">
                             <p class="text-lg ">Estado Nutricional: Delgadez </p>

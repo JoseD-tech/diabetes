@@ -7,7 +7,7 @@
                 style="background-image: url(https://junctionroadfp.com/wp-content/uploads/2022/04/shutterstock_1182539971.jpg)">
                 <div class="flex items-center h-full px-20 bg-gray-900 bg-opacity-50">
                     <div>
-                        <h2 class="text-4xl font-bold text-white capitalize">Sistema Experto Para Diagnosticar y emitir planes Nutricionales para pacientes de diabetes tipo I</h2>
+                        <h2 class="text-4xl font-bold text-white">Sistema experto para diagnosticar y emitir planes nutricionales para pacientes de diabetes tipo I</h2>
                     </div>
                 </div>
             </div>

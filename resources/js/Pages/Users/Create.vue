@@ -63,8 +63,6 @@ const props = defineProps({
     roles: Object
 })
 
-console.log(props.roles);
-
 const form = reactive({
     nombre: '',
     correo: '',

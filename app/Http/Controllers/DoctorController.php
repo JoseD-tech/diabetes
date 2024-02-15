@@ -69,7 +69,7 @@ class DoctorController extends Controller
         $cita->estado_id = 2;
         $cita->save();
 
-        return to_route('doctor.index');
+        return to_route('doctor.edit', $cita->id);
     }
 
     /**

@@ -97,7 +97,7 @@
                                                     Cita</button>
 
                                                 <button v-if="cita.estado_id === 2" @click="mostrarReporte(cita.id)"
-                                                    class="bg-red-600 px-2 py-1 rounded-md text-white font-semibold tracking-wide cursor-pointer">Diagnostico</button>
+                                                    class="bg-red-600 px-2 py-1 rounded-md text-white font-semibold tracking-wide cursor-pointer">Diagnóstico Médico</button>
                                             </td>
 
 

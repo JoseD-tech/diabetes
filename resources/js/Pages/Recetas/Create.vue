@@ -269,6 +269,10 @@
                 </div>
             </div>
         </div>
+
+        <div class="pt-6">
+            <p class="text-3xl font-extrabold text-blue-800">Recomendaciones alimenticias en 3 categorías: Hipocalórica, normocalorica y hipercalorica</p>
+        </div>
     </AuthenticatedLayout>
 </template>
 
