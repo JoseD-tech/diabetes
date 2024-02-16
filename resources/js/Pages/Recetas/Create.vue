@@ -3,7 +3,7 @@
 
     <AuthenticatedLayout>
         <template #header>
-            Crear Receta
+            Crear Plan Nutricional
         </template>
 
         <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
@@ -261,7 +261,7 @@
                         <div class="w-100">
                             <button type="submit"
                                 class="block m-auto w-full  border border-green-500 bg-green-500 text-white rounded-md py-2 px-2 transition duration-500 ease select-none hover:bg-green-600 focus:outline-none focus:shadow-outline mt-20">Registrar
-                                Receta</button>
+                                Plan Nutricional</button>
                         </div>
 
                     </form>

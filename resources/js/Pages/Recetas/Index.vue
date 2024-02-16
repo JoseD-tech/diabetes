@@ -3,7 +3,7 @@
 
     <AuthenticatedLayout>
         <template #header>
-            Recetas Para Pacientes
+            Planes Nutricionales Para Pacientes
         </template>
 
         <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
@@ -12,7 +12,7 @@
                     <div class="flex justify-end item-center py-2">
                     <Link :href="route('recetas.create')"
                         class="border border-green-500 bg-green-500 text-white rounded-md px-4 py-2 m-2 transition duration-500 ease select-none hover:bg-green-600 focus:outline-none focus:shadow-outline">
-                        Crear Recetas
+                        Crear Plan Nutricional
                     </Link>
                 </div>
                     <div>
@@ -24,7 +24,7 @@
                                         <tr>
                                             <th
                                                 class="px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
-                                                Nombre de Receta
+                                                Nombre de Plan Nutricional
                                             </th>
                                             <th
                                                 class="px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
@@ -49,14 +49,14 @@
                                             <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm space-x-2">
                                                 <button @click="mostrarCita(receta.id)"
                                                     class="bg-yellow-600 px-2 py-1 rounded-md text-white font-semibold tracking-wide cursor-pointer">Ver
-                                                    Receta</button>
+                                                    Plan Nutricional</button>
                                             </td>
                                         </tr>
                                     </tbody>
                                 </table>
                             </div>
                             <p v-else>
-                                No Hay Recetas
+                                No Hay Planes Nutricionales
                             </p>
                         </div>
                     </div>
