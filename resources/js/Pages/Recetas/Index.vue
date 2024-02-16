@@ -30,7 +30,7 @@
                                                 class="px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
                                                 Descripcion
                                             </th>
-                                            <th
+                                            <th v-if="$page.props.auth.user.roles[0].name === 'admin'"
                                                 class="px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
                                                 Acciones
                                             </th>
@@ -46,7 +46,7 @@
                                             <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
                                                 <p class="text-gray-900 whitespace-no-wrap">{{ receta.descripcion }}</p>
                                             </td>
-                                            <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm space-x-2">
+                                            <td v-if="$page.props.auth.user.roles[0].name === 'admin'" class="px-5 py-5 border-b border-gray-200 bg-white text-sm space-x-2">
                                                 <button @click="mostrarCita(receta.id)"
                                                     class="bg-yellow-600 px-2 py-1 rounded-md text-white font-semibold tracking-wide cursor-pointer">Ver
                                                     Plan Nutricional</button>
