@@ -34,6 +34,7 @@
                 </div>
                 <div class="my-4    ">
                     <h4 class="text-2xl mb-2 font-bold">Diagnóstico Médico:</h4>
+                    <p class="text-lg">Descripcion: {{ historial[0].descripcion }}</p>
                     <template
                         v-if="props.historial[0].oc == 1 && props.historial[0].pp == 1 && props.historial[0].emp == 1 && props.historial[0].he == 1 && props.historial[0].afd == 1">
                         <p class="text-lg ">Estado de diabetes: Paciente en estado diabetico</p>
@@ -74,7 +75,7 @@
                             <p class="text-lg ">Estado de Glucosa: Normal (Glicemia en ayunas (antes de comer): Normalmente se considera un rango de 70 a 100 mg/dL.)</p>
                         </template>
                         <template v-else-if="historial[0].glisemia >= 140">
-                            <p class="text-lg ">Estado de Glucosa: Alterada (Glicemia dos horas después de comer (postprandial): Normalmente se considera un rango de menos de 140 mg/dL.)</p>
+                            <p class="text-lg ">Estado de Glucosa: Alterada (Glicemia en ayunas (antes de comer): Normalmente se considera un rango de 70 a 100 mg/dL.)</p>
                         </template>
                     </div>
                     <div>

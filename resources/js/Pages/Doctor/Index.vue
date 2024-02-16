@@ -447,8 +447,7 @@
 
                     <div>
                         <label for="resultado"
-                            class="text-gray-800 text-xl font-bold leading-tight tracking-normal mt-4 block">Resultado de la
-                            cita</label>
+                            class="text-gray-800 text-xl font-bold leading-tight tracking-normal mt-4 block">Sintomas del paciente:</label>
                         <textarea v-model="form.resultado" required
                             class="mt-2 h-24 w-full border rounded-xl overflow-hidden resize-none focus:border-blue-500 ring-1 ring-transparent focus:ring-blue-500 focus:outline-none text-black p-2 transition ease-in-out duration-300"
                             :placeholder="`Ingrese los resultados de la cita con el paciente ${citaAtenderSeleccionada.paciente_cita.nombre} ${citaAtenderSeleccionada.paciente_cita.apellido}`"></textarea>
@@ -483,7 +482,7 @@
             <div role="alert">
                 <div class="relative py-8 px-5 md:px-10 bg-white shadow-md rounded border border-gray-400">
                     <h1 class="text-gray-800 font-lg font-bold tracking-normal leading-tight mb-4 text-2xl">
-                        Reporte De Cita
+                        Diagnostico De Cita
                     </h1>
                     <div>
                         <h3 class="text-gray-800 font-bold leading-tight tracking-normal text-xl">
