@@ -43,38 +43,38 @@
                     </template>
                     <div>
                         <template v-if="(pacientes.edad >= 18 && pacientes.edad <= 30) && indice.toFixed(2) <= 18.5">
-                            <p class="text-lg ">Estado Nutricional: Delgadez </p>
+                            <p class="text-lg ">Estado Nutricional: Delgadez (Bajo peso: IMC menor a 18.5) </p>
                         </template>
                         <template v-else-if="(pacientes.edad >= 31 && pacientes.edad <= 59) && indice.toFixed(2) <= 18.5">
-                            <p class="text-lg ">Estado Nutricional: Delgadez </p>
+                            <p class="text-lg ">Estado Nutricional: Delgadez (Bajo peso: IMC menor a 18.5)</p>
                         </template>
                         <template v-else-if="(pacientes.edad >= 60) && indice.toFixed(2) <= 23">
-                            <p class="text-lg ">Estado Nutricional: Delgadez </p>
+                            <p class="text-lg ">Estado Nutricional: Delgadez (Bajo peso: IMC menor a 18.5) </p>
                         </template>
                         <template
                             v-else-if="(pacientes.edad >= 18 && pacientes.edad <= 30) && (indice.toFixed(2) > 18.5 && indice.toFixed(2) < 24.9)">
-                            <p class="text-lg ">Estado Nutricional: Normopeso </p>
+                            <p class="text-lg ">Estado Nutricional: Normopeso (Peso normal: IMC entre 18.5 y 24.9) </p>
                         </template>
                         <template
                             v-else-if="(pacientes.edad >= 31 && pacientes.edad <= 59) && (indice.toFixed(2) > 18.5 && indice.toFixed(2) < 24.9)">
-                            <p class="text-lg ">Estado Nutricional: Normopeso </p>
+                            <p class="text-lg ">Estado Nutricional: Normopeso (Peso normal: IMC entre 18.5 y 24.9) </p>
                         </template>
                         <template v-else-if="(pacientes.edad >= 60) && (indice.toFixed(2) > 23 && indice.toFixed(2) < 28)">
-                            <p class="text-lg ">Estado Nutricional: Normopeso </p>
+                            <p class="text-lg ">Estado Nutricional: Normopeso (Peso normal: IMC entre 18.5 y 24.9) </p>
                         </template>
                         <template v-else-if="(pacientes.edad >= 18 && pacientes.edad <= 59) && indice.toFixed(2) >= 25">
-                            <p class="text-lg ">Estado Nutricional: Sobrepeso </p>
+                            <p class="text-lg ">Estado Nutricional: Sobrepeso (Sobrepeso: IMC entre 25 y 29.9)</p>
                         </template>
                         <template v-else-if="(pacientes.edad >= 60) && indice.toFixed(2) >= 28">
-                            <p class="text-lg ">Estado Nutricional: Sobrepeso </p>
+                            <p class="text-lg ">Estado Nutricional: Sobrepeso (Sobrepeso: IMC entre 25 y 29.9) </p>
                         </template>
                     </div>
                     <div>
                         <template v-if="historial[0].glisemia < 140">
-                            <p class="text-lg ">Estado de Glucosa: Normal </p>
+                            <p class="text-lg ">Estado de Glucosa: Normal (Glicemia en ayunas (antes de comer): Normalmente se considera un rango de 70 a 100 mg/dL.)</p>
                         </template>
                         <template v-else-if="historial[0].glisemia >= 140">
-                            <p class="text-lg ">Estado de Glucosa: Alterada</p>
+                            <p class="text-lg ">Estado de Glucosa: Alterada (Glicemia dos horas después de comer (postprandial): Normalmente se considera un rango de menos de 140 mg/dL.)</p>
                         </template>
                     </div>
                     <div>
@@ -91,7 +91,7 @@
 
                     </div>
                     <div>
-                        <h4 class="text-2xl my-2 font-bold">Receta:</h4>
+                        <h4 class="text-2xl my-2 font-bold">Plan Nutricional:</h4>
                         <h4 class="text-xl my-2 font-bold">Nombre de la receta: {{ recetas[ramdonreceta].titulo }}</h4>
                         <p class="text-md my-2 font-bold">Descripcion de la receta: {{ recetas[ramdonreceta].descripcion }}</p>
                         <p class="text-md my-2 font-bold">Receta: <br>
