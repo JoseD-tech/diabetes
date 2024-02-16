@@ -86,6 +86,9 @@ class DoctorController extends Controller
     public function edit($id)
     {
         //
+
+        dd($id, Historial::where('paciente_id', $id)->get());
+
         $paciente = Paciente::find($id);
         $historial = Historial::where('paciente_id', $id)->get();
         $recetas = Receta::all();
